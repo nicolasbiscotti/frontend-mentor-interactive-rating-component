@@ -24,11 +24,21 @@
         color: hsl(228, 45%, 44%);
       }
     </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <main>
+      <!-- Rating state start -->
       <article class="rating">
-        <!-- Rating state start -->
         <div class="rating__icon">
           <svg width="17" height="16" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -37,6 +47,7 @@
             />
           </svg>
         </div>
+
         <h1>How did we do?</h1>
 
         <p>
@@ -44,11 +55,9 @@
           is appreciated to help us improve our offering!
         </p>
 
-        <form class="grid-group" action="#">
-          <fieldset class="flex-group">
-            <legend class="none-displayed-element">
-              Select a rating:
-            </legend>
+        <form class="rating__form grid-group" action="#">
+          <fieldset class="flex-group-space-b">
+            <legend class="none-displayed-element">Select a rating:</legend>
 
             <input
               class="none-displayed-element"
@@ -57,7 +66,7 @@
               value="1"
               id="1"
             />
-            <label for="1">1</label>
+            <label class="rating__number" for="1">1</label>
 
             <input
               class="none-displayed-element"
@@ -66,7 +75,7 @@
               value="2"
               id="2"
             />
-            <label for="2">2</label>
+            <label class="rating__number" for="2">2</label>
 
             <input
               class="none-displayed-element"
@@ -75,7 +84,7 @@
               value="3"
               id="3"
             />
-            <label for="3">3</label>
+            <label class="rating__number" for="3">3</label>
 
             <input
               class="none-displayed-element"
@@ -84,7 +93,7 @@
               value="4"
               id="4"
             />
-            <label for="4">4</label>
+            <label class="rating__number" for="4">4</label>
 
             <input
               class="none-displayed-element"
@@ -93,17 +102,16 @@
               value="5"
               id="5"
             />
-            <label for="5">5</label>
+            <label class="rating__number" for="5">5</label>
           </fieldset>
 
           <button class="button">Submit</button>
         </form>
-
-        <!-- Rating state end -->
       </article>
+      <!-- Rating state end -->
 
-      <article class="thank-you">
-        <!-- Thank you state start -->
+      <!-- Thank you state start -->
+      <article style="display: none" class="thank-you">
         <div class="thank-you__icon">
           <svg width="162" height="108" xmlns="http://www.w3.org/2000/svg">
             <g fill="none">
@@ -205,12 +213,11 @@
           We appreciate you taking the time to give a rating. If you ever need
           more support, don’t hesitate to get in touch!
         </p>
-
-        <!-- Thank you state end -->
       </article>
+      <!-- Thank you state end -->
     </main>
 
-    <footer>
+    <footer style="display: none">
       <div class="attribution">
         Challenge by
         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
