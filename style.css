@@ -137,6 +137,11 @@ fieldset {
 
   cursor: pointer;
 }
+.button:hover, .button:focus {
+  border: none;
+  background-color: var(--color-neutral-100);
+  color: var(--color-orage-primary);
+}
 
 /* Custom Classes */
 .rating {
@@ -156,8 +161,13 @@ fieldset {
 }
 .rating__number {
   cursor: pointer;
+  font-size: 0.725rem;
 }
 .rating__number:hover {
   background-color: var(--color-orage-primary);
+  color: var(--color-neutral-100);
+}
+input:checked  .rating__number {
+  background-color: red;
   color: var(--color-neutral-100);
 }
