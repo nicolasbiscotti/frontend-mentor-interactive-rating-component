@@ -82,6 +82,7 @@ body {
   background-color: var(--color-neutral-900);
   color: var(--color-neutral-300);
   font-family: var(--font-family-base);
+  font-size: 1rem;
 
   /* For this project */
   display: grid;
@@ -95,28 +96,46 @@ fieldset {
   border: 0;
   padding: 0;
 }
-legend {
-  display: none;
-}
-/*  */
+/* Utility Classes */
 .grid-group {
   display: grid;
 }
+
 .flex-group-space-b {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .none-displayed-element {
   display: none;
 }
+
+.circle {
+  --box-size: 10vw;
+
+  display: grid;
+  place-content: center;
+
+  width: var(--box-size);
+  height: var(--box-size);
+  border-radius: 100%;
+
+  background-color: var(--color-neutral-600);
+}
+
 .button {
-  background-color: var(--color-orage-primary);
   border: none;
-  padding: 1rem;
+  border-radius: 3rem;
+  padding: 0.625rem 1rem;
+
   color: var(--color-neutral-100);
   text-transform: uppercase;
   letter-spacing: 0.3rem;
+
+  background-color: var(--color-orage-primary);
+
+  cursor: pointer;
 }
 
 /* Custom Classes */
@@ -126,15 +145,19 @@ legend {
 
   display: grid;
   gap: var(--space-items);
-  padding: var(--space-content);
-  background-color: var(--color-neutral-700);
+
   border-radius: 1rem;
+  padding: var(--space-content);
+
+  background-color: var(--color-neutral-700);
 }
 .rating__form {
   gap: var(--space-items);
 }
 .rating__number {
-  background-color: var(--color-neutral-600);
-  padding: 1rem;
-  border-radius: 100%;
+  cursor: pointer;
+}
+.rating__number:hover {
+  background-color: var(--color-orage-primary);
+  color: var(--color-neutral-100);
 }
