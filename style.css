@@ -100,6 +100,9 @@ fieldset {
 .grid-group {
   display: grid;
 }
+.center-content {
+  place-content: center;
+}
 
 .flex-group-space-b {
   display: flex;
@@ -109,6 +112,10 @@ fieldset {
 
 .none-displayed-element {
   display: none;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .circle {
@@ -139,7 +146,8 @@ fieldset {
 
   cursor: pointer;
 }
-.button:hover, .button:focus {
+.button:hover,
+.button:focus {
   border: none;
   background-color: var(--color-neutral-100);
   color: var(--color-orage-primary);
@@ -171,7 +179,15 @@ fieldset {
   background-color: var(--color-orage-primary);
   color: var(--color-neutral-100);
 }
-input:checked  + .rating__number {
+input:checked + .rating__number {
   background-color: var(--color-neutral-300);
   color: var(--color-neutral-100);
+}
+.rating__summary-choice {
+  border-radius: 3rem;
+  padding: 0.5rem 1rem;
+  width: fit-content;
+
+  background-color: var(--color-neutral-600);
+  color: var(--color-orage-primary);
 }
