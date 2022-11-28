@@ -119,6 +119,8 @@ fieldset {
 
   width: var(--box-size);
   height: var(--box-size);
+  max-width: 50px;
+  max-height: 50px;
   border-radius: 100%;
 
   background-color: var(--color-neutral-600);
