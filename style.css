@@ -112,7 +112,7 @@ fieldset {
 }
 
 .circle {
-  --box-size: 10vw;
+  --box-size: 12vw;
 
   display: grid;
   place-content: center;
@@ -145,7 +145,7 @@ fieldset {
 
 /* Custom Classes */
 .rating {
-  --space-items: 1rem;
+  --space-items: 2rem;
   --space-content: 2rem;
 
   display: grid;
@@ -161,7 +161,7 @@ fieldset {
 }
 .rating__number {
   cursor: pointer;
-  font-size: 0.725rem;
+  font-size: 0.875rem;
 }
 .rating__number:hover {
   background-color: var(--color-orage-primary);
