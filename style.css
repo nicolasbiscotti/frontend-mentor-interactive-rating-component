@@ -151,6 +151,8 @@ fieldset {
   display: grid;
   gap: var(--space-items);
 
+  max-width: 400px;
+
   border-radius: 1rem;
   padding: var(--space-content);
 
