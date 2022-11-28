@@ -167,7 +167,7 @@ fieldset {
   background-color: var(--color-orage-primary);
   color: var(--color-neutral-100);
 }
-input:checked  .rating__number {
-  background-color: red;
+input:checked  + .rating__number {
+  background-color: var(--color-neutral-300);
   color: var(--color-neutral-100);
 }
