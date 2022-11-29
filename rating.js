@@ -1,4 +1,5 @@
 const SHIPMENT = {
+  inactive: null,
   pending: "pending",
   fulfilled: "fulfilled",
   rejected: "rejected",

@@ -1,28 +1,33 @@
-let postRatingResolveListener = () => {};
-// should render the rating form for shipmentStatus null
-const rating = createRating({
-  postRating: () => {},
-  onPostRatingResolve,
-});
+// 1 should render the rating form for shipmentStatus null
+// 2 should set the rating when the user selects one
+// 3 should render only the loading state for shipmenStatus pending
+// 4 Refactor --> define displayRatingState(shipmentStatus){}
+// 5 should render only the thank you state for shipmentStatus fulfilled
+
+const fakeBackend = {
+  listener: () => {},
+  postRating: () => {
+    setTimeout(() => fakeBackend.listener("fulfilled"), 500);
+  },
+  onPostRatingResolve: function (listener) {
+    fakeBackend.listener = listener;
+  },
+};
+
+const rating = createRating(fakeBackend);
+
 const ratingStates = document.querySelectorAll(".rating");
-
-// should set the rating when the user selects one
 const ratingOptions = document.querySelectorAll("input");
-ratingOptions.forEach((option) => (option.onchange = onOptionChange));
-
-// should render only the loading state for shipmenStatus pending
 const submitRating = document.querySelector("button");
-submitRating.onclick = onSubmit;
 
 rating.onRatingShipmentChange(() =>
   displayRatingState(rating.getState().shipmentStatus)
 );
 
-// should render only the thank you state for shipmentStatus fulfilled
-function onPostRatingResolve(listener) {
-  postRatingResolveListener = listener;
-}
-// Refactor --> define displayRatingState(shipmentStatus){}
+ratingOptions.forEach((option) => (option.onchange = onOptionChange));
+
+submitRating.onclick = onSubmit;
+
 displayRatingState(rating.getState().shipmentStatus);
 
 // dicovered functions
@@ -39,12 +44,12 @@ function displayRatingState(shipmentStatus) {
     ratingStates[1].style.display = "none";
     ratingStates[2].style.display = "";
   }
-  console.log(rating.getState());
+  console.log(`first render or shipmentStatusChange: `, rating.getState());
 }
 
 function onOptionChange(e) {
   rating.setSelectedRating(e.target.value);
-  console.log(rating.getState());
+  console.log("Rating Option Selected: ", rating.getState());
 }
 
 function onSubmit(e) {
