@@ -26,6 +26,7 @@ const rating = createRating(fakeBackend);
 const ratingStates = document.querySelectorAll(".rating");
 const ratingOptions = document.querySelectorAll("input");
 const submitRating = document.querySelector("button");
+const ratinSummaryChoice = document.querySelector(".rating__summary-choice");
 
 rating.onRatingShipmentChange(() =>
   displayRatingState(rating.getState().shipmentStatus)
@@ -49,6 +50,9 @@ function displayRatingState(shipmentStatus) {
   } else if (shipmentStatus === SHIPMENT.fulfilled) {
     ratingStates[0].style.display = "none";
     ratingStates[1].style.display = "none";
+    ratinSummaryChoice.textContent = `You selected ${
+      rating.getState().rating
+    } out of 5`;
     ratingStates[2].style.display = "";
   }
   console.log(`first render or shipmentStatusChange: `, rating.getState());
