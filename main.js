@@ -3,16 +3,23 @@
 // 3 should render only the loading state for shipmenStatus pending
 // 4 Refactor --> define displayRatingState(shipmentStatus){}
 // 5 should render only the thank you state for shipmentStatus fulfilled
+// 6 should display the selected rating on thank you state render
 
-const fakeBackend = {
-  listener: () => {},
-  postRating: () => {
-    setTimeout(() => fakeBackend.listener("fulfilled"), 500);
-  },
-  onPostRatingResolve: function (listener) {
-    fakeBackend.listener = listener;
-  },
-};
+const fakeBackend = (function () {
+  let selfListener = () => {};
+
+  function postRating() {
+    setTimeout(() => selfListener("fulfilled"), 500);
+  }
+  function onPostRatingResolve(listener) {
+    selfListener = listener;
+  }
+
+  return {
+    postRating,
+    onPostRatingResolve,
+  };
+})();
 
 const rating = createRating(fakeBackend);
 
