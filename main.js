@@ -32,25 +32,28 @@ ratingOptions.forEach((option) => (option.onchange = onOptionChange));
 submitRating.onclick = onSubmit;
 
 function renderRatingState(shipmentStatus) {
-  if (shipmentStatus === SHIPMENT.inactive) {
-    root.render(createElement("article", "rating", ratingFormState()));
-  } else if (shipmentStatus === SHIPMENT.pending) {
-    root.render(createElement("article", "rating", loadingState()));
-  } else if (shipmentStatus === SHIPMENT.fulfilled) {
-    root.render(
-      createElement(
-        "article",
-        "rating",
-        thankYouState({ selectedRating: rating.getState().rating })
-      )
-    );
-  }
+  root.render(
+    createElement(
+      "article",
+      ratingComponent({
+        shipmentStatus,
+        selectedRating: rating.getState().rating,
+      }),
+      { className: "rating" }
+    )
+  );
+
   console.log(`first render or shipmentStatusChange: `, rating.getState());
 }
 
-function createElement(type, className, innerHTML) {
+function createElement(type, innerHTML, attributes) {
   const element = document.createElement(type);
-  element.className = className;
+  for (const key in attributes) {
+    if (Object.hasOwnProperty.call(attributes, key)) {
+      const value = attributes[key];
+      element[key] = value;
+    }
+  }
   element.innerHTML = innerHTML;
   return element;
 }
