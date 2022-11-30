@@ -96,6 +96,12 @@ fieldset {
   border: 0;
   padding: 0;
 }
+div[data-illustration="thank-you"]::before {
+  content: "";
+  background-image: url("./images/illustration-thank-you.svg");
+  width: 162px;
+  height: 108px;
+}
 /* Utility Classes */
 .grid-group {
   display: grid;
@@ -131,6 +137,12 @@ fieldset {
   border-radius: 100%;
 
   background-color: var(--color-neutral-600);
+}
+.circle[data-icon="star"]::before {
+  content: "";
+  background-image: url("./images/icon-star.svg");
+  width: 17px;
+  height: 16px;
 }
 
 .button {
