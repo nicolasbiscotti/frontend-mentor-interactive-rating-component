@@ -87,7 +87,7 @@ body {
   /* For this project */
   display: grid;
   place-content: center;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 h1 {
   color: var(--color-neutral-100);
@@ -101,6 +101,12 @@ div[data-illustration="thank-you"]::before {
   background-image: url("./images/illustration-thank-you.svg");
   width: 162px;
   height: 108px;
+}
+footer {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  width: 100vw;
 }
 
 /* Utility Classes */
