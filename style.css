@@ -102,7 +102,9 @@ div[data-illustration="thank-you"]::before {
   width: 162px;
   height: 108px;
 }
+
 /* Utility Classes */
+
 .grid-group {
   display: grid;
 }
@@ -123,6 +125,8 @@ div[data-illustration="thank-you"]::before {
 .text-center {
   text-align: center;
 }
+
+/* Circle */
 
 .circle {
   --box-size: 12vw;
@@ -145,12 +149,15 @@ div[data-illustration="thank-you"]::before {
   height: 16px;
 }
 
+/* Button */
+
 .button {
-  border: none;
+  border: 0;
   border-radius: 3rem;
   padding: 0.625rem 1rem;
 
   color: var(--color-neutral-100);
+  text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.3rem;
 
@@ -158,14 +165,13 @@ div[data-illustration="thank-you"]::before {
 
   cursor: pointer;
 }
-.button:hover,
-.button:focus {
-  border: none;
+.button:is(:hover, :focus) {
   background-color: var(--color-neutral-100);
   color: var(--color-orage-primary);
 }
 
-/* Custom Classes */
+/* Rating Styles */
+
 .rating {
   --space-items: 2rem;
   --space-content: 2rem;
