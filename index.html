@@ -38,7 +38,7 @@
   <body>
     <main>
       <!-- Rating state start -->
-      <article class="rating">
+      <article class="rating" data-state="active">
         <div class="circle" data-icon="star"></div>
 
         <h1>How did we do?</h1>
@@ -103,12 +103,12 @@
       </article>
       <!-- Rating state end -->
 
-      <article class="rating">
+      <article style="display: none" class="rating">
         <p>Processing rating</p>
       </article>
 
       <!-- Thank you state start -->
-      <article  class="rating">
+      <article style="display: none" class="rating">
         <div
           class="grid-group center-content"
           data-illustration="thank-you"

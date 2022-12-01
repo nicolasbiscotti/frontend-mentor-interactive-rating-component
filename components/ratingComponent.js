@@ -1,9 +1,10 @@
 function ratingComponent({ shipmentStatus, selectedRating }) {
   let rating = "";
-  if (shipmentStatus === SHIPMENT.inactive) {
+  if (
+    shipmentStatus === SHIPMENT.inactive ||
+    shipmentStatus === SHIPMENT.pending
+  ) {
     rating = inactiveState();
-  } else if (shipmentStatus === SHIPMENT.pending) {
-    rating = loadingState();
   } else if (shipmentStatus === SHIPMENT.fulfilled) {
     rating = thankYouState({ selectedRating });
   }

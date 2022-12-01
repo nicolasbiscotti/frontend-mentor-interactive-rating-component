@@ -39,10 +39,19 @@ function renderRatingState(shipmentStatus) {
         shipmentStatus,
         selectedRating: rating.getState().rating,
       }),
-      { className: "rating" }
+      { className: "rating", dataset: shipmentStatus }
     )
   );
-
+  console.log(
+    createElement(
+      "article",
+      ratingComponent({
+        shipmentStatus,
+        selectedRating: rating.getState().rating,
+      }),
+      { className: "rating", dataset: shipmentStatus }
+    )
+  );
   console.log(`first render or shipmentStatusChange: `, rating.getState());
 }
 
@@ -51,7 +60,11 @@ function createElement(type, innerHTML, attributes) {
   for (const key in attributes) {
     if (Object.hasOwnProperty.call(attributes, key)) {
       const value = attributes[key];
-      element[key] = value;
+      if (key === "dataset") {
+        element[key]["state"] = value;
+      } else {
+        element[key] = value;
+      }
     }
   }
   element.innerHTML = innerHTML;
